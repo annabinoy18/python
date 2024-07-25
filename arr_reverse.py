@@ -27,11 +27,21 @@ def rev_inbuild(arr): #in place
 
 def rev_recursion(arr,start,end): #in-place or non in place
     if start>=end:
-       return
+        return
+
     arr[start],arr[end]=arr[end],arr[start]
     rev_recursion(arr,start+1,end-1)
+         
+def rev_stack(arr):
+    stack=[]
 
-    print('reversed arr 3 ' )
+    for i in arr:
+        stack.append(i)
+
+    for i in range(len(arr)):
+        arr[i]=stack.pop()
+
+    print('reversed arr 4' )
     print(arr)
     print ()
 
@@ -41,8 +51,21 @@ user_inp=input('enter the elements of the array')
 arr=[int(x) for x in user_inp.split()]
 start=0
 end=len(arr)-1
+
 rev_Extra_Arr(arr)
+
+arr=[int(x) for x in user_inp.split()]
 rev_loop(arr,start,end)
+
+arr=[int(x) for x in user_inp.split()]
 rev_inbuild(arr)
+
+arr=[int(x) for x in user_inp.split()]
 rev_recursion(arr,start,end)
+print('reversed arr 3 ' )
+print(arr)
+print ()
+
+arr=[int(x) for x in user_inp.split()]
+rev_stack(arr)
 
