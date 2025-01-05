@@ -8,3 +8,17 @@ def has_zero_sum_subarray(arr):
             return True               # If either condition is met, a zero-sum subarray exists
         seen_sums.add(prefix_sum)     # Otherwise, add the current prefix sum to the set
     return False                      # If loop completes without returning, no zero-sum subarray exists
+
+
+def has_given_sum_subarray(arr, target_sum):
+    prefix_sum = 0
+    seen_sums = set()
+    
+    for num in arr:
+        prefix_sum += num
+        # Check if there is a subarray with the given sum
+        if prefix_sum == target_sum or (prefix_sum - target_sum) in seen_sums:
+            return True
+        seen_sums.add(prefix_sum)
+    
+    return False
